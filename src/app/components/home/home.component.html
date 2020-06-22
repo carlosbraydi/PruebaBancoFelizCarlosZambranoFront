@@ -1,0 +1,30 @@
+<table class="table" *ngIf="data != null">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Function</th>
+        <th scope="col">Jefe</th>
+        <th scope="col">Empleados</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of data">
+        <th scope="row">{{employee.idEmployee}}</th>
+        <td>{{employee.fullName}}</td>
+        <td>{{employee.function}}</td>
+        <ng-container *ngIf="employee.boss != null">
+            <td>{{employee.boss['fullName']}}</td>
+        </ng-container>
+        <ng-container *ngIf="employee.boss == null">
+            <td>Sin Jefe</td>
+        </ng-container>
+        <td>ver</td>
+        <td>
+            <button class="btn"><i class="fa fa-trash"></i></button>
+            <button class="btn btnEdit"><i class="fa fa-wrench"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
