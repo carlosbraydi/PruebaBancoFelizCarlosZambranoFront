@@ -23,7 +23,6 @@ export class AddComponent implements OnInit {
   getEmployess() {
     this.service.getEmployees().subscribe(res => {
       this.data = res;
-      console.log(this.data);
     });
   }
 

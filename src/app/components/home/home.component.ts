@@ -43,7 +43,6 @@ export class HomeComponent implements OnInit {
       employee.employees.forEach(aEmployee => {
         empleados += '\n' + aEmployee.fullName + ' - ' + aEmployee.function;
       });
-      console.log(empleados);
       alert('Empleados a cargo: ' + empleados);
     } else {
       alert('No tiene empleados a cargo');
