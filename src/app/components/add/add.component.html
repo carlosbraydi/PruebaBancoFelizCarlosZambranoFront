@@ -1,2 +1,19 @@
-<p>add works!</p>
-<h1>Holaaaa</h1>
+<form [formGroup]="formGroup">
+    <div class="form-group">
+      <label for="fullName">Nombre Completo</label>
+      <input type="text" class="form-control" id="fullName" aria-describedby="Nombre" formControlName="fullName" required>
+      <small id="emailHelp" class="form-text text-muted">Por favor escriba su nombre completo en el recuadro anterior.</small>
+    </div>
+    <div class="form-group">
+        <label for="function">Función</label>
+        <input type="text" class="form-control" id="function" aria-describedby="Función" formControlName="function" required>
+        <small id="emailHelp" class="form-text text-muted">Por favor escriba la funcion que realiza en el recuadro anterior.</small>
+    </div>
+    <div class="form-group">
+        <label for="boss">Seleccione un jefe</label>
+        <select multiple class="form-control" id="boss" formControlName="boss">
+          <option *ngFor="let employee of data" [value]="employee.idEmployee">{{employee.fullName}}</option>
+        </select>
+      </div>
+    <button type="submit" class="btn btn-primary" (click)="agregar()" [disabled]="!this.formGroup.valid">Añadir</button>
+</form>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import { IEmployee } from '../interfaces/employee';
 import {Observable} from 'rxjs';
 
@@ -14,5 +14,16 @@ export class EmployeeService {
 
   getEmployees(): Observable<IEmployee[]> {
     return this.http.get<IEmployee[]>(this.URL);
+  }
+
+  postEmployee(employee: IEmployee): Observable<IEmployee> {
+    return this.http.post<IEmployee>(this.URL, employee);
+  }
+
+  deleteEmployee(idEmployee: number): Observable<boolean> {
+    const params = new HttpParams()
+      .set('idEmployee', idEmployee.toString());
+
+    return this.http.delete<boolean>(this.URL + '/delete', {params});
   }
 }

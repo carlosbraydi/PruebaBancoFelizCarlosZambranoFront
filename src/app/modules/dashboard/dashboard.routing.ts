@@ -1,6 +1,4 @@
-import { NgModule, Component } from '@angular/core';
-import { AddModule } from 'src/app/modules/add/add.module';
-import { HomeModule } from 'src/app/modules/home/home.module';
+import { NgModule } from '@angular/core';
 
 // --------- Components --------- //
 import { DasboardComponent } from 'src/app/components/dasboard/dasboard.component';

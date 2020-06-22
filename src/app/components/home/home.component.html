@@ -1,12 +1,7 @@
 <table class="table" *ngIf="data != null">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Function</th>
-        <th scope="col">Jefe</th>
-        <th scope="col">Empleados</th>
-        <th scope="col">Acciones</th>
+        <th *ngFor="let item of columns" scope="col">{{item}}</th>
       </tr>
     </thead>
     <tbody>
@@ -20,10 +15,9 @@
         <ng-container *ngIf="employee.boss == null">
             <td>Sin Jefe</td>
         </ng-container>
-        <td>ver</td>
+        <td><button class="btn btnShow" (click)="ver(employee)"><i class="fa fa-eye"></i></button></td>
         <td>
-            <button class="btn"><i class="fa fa-trash"></i></button>
-            <button class="btn btnEdit"><i class="fa fa-wrench"></i></button>
+            <button class="btn" (click)="delete(employee)"><i class="fa fa-trash"></i></button>
         </td>
       </tr>
     </tbody>
